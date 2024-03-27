@@ -15,10 +15,7 @@ const config = {
 		adapter: adapter({	pages: 'docs',
 							assets: 'docs',
 							
-						}),
-						paths: {
-							base: process.argv.includes('dev') ? '' : "/ElletWebb"
-						}
+						})
 	}
 };
 export default config;
