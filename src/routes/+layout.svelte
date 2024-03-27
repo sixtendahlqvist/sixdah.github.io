@@ -18,6 +18,7 @@
 			</nav>
 		</div>
 		<hr>
+		<hr>
 	</svelte:fragment>
 
 
