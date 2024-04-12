@@ -1,21 +1,63 @@
-import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import adapter from "@sveltejs/adapter-static";
+import preprocess from "svelte-preprocess";
+import { mdsvex } from "mdsvex";
+import remarkGithub from "remark-github";
+import remarkAbbr from "remark-abbr";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'],
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: [vitePreprocess()],
-	
-	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter({	pages: 'docs',
-							assets: 'docs',
-							
-						})
-	}
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [
+    preprocess(),
+    vitePreprocess({}),
+    mdsvex({
+      extensions: [".md", ".svx"],
+      layout: { blog: "./src/routes/blog/post.svelte" },
+    }),
+  ],
+
+  kit: {
+    adapter: adapter({
+      pages: "docs",
+      assets: "docs",
+    }),
+  },
+  vitePlugin: {
+    experimental: {
+      inspector: {
+        toggleKeyCombo: "meta-shift",
+        holdMode: true,
+        showToggleButton: "always",
+        toggleButtonPos: "bottom-right",
+      },
+    },
+  },
+
+  extensions: [".svelte", ".md", ".svx"],
+  remarkPlugins: [
+    [
+      remarkGithub,
+      {
+        // Use your own repository
+        repository:
+          "https://github.com/williamviktorsson/williamviktorsson.github.io.git",
+      },
+    ],
+    remarkAbbr,
+  ],
+  rehypePlugins: [
+    rehypeSlug,
+    [
+      rehypeAutolinkHeadings,
+      {
+        behavior: "wrap",
+      },
+    ],
+  ],
 };
+
 export default config;

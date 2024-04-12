@@ -1,0 +1,25 @@
+---
+title: Vecka 13, Start of Project
+date: "2024-03-27"
+keywords: ["project", "Start"]
+---
+
+JAG HATAR GITHUB PAGES!!!
+
+Jag har börjat styla hemsidan med en navbar och en profilbild :,|
+
+<br>
+
+```
+<nav class="navbar">
+    <div class="logo">
+        <img class="pfp" src="pfp.jpg" alt="hahahahe">
+        <a class="header" href="/">Linus Scott</a>
+    </div>
+    <div class="menuItems">
+        <div><a class="barItem" href="/test">Requests</a></div>
+        <div><a class="barItem" href="/Info">About Me</a></div>
+        <div><a class="barItem" href="/filedownloads">Projects</a></div>
+    </div>
+</nav>
+```
