@@ -16,7 +16,7 @@ const config = {
     vitePreprocess({}),
     mdsvex({
       extensions: [".md", ".svx"],
-      layout: { blog: "./src/routes/blog/post.svelte" },
+      
     }),
   ],
 
@@ -28,12 +28,12 @@ const config = {
   },
   vitePlugin: {
     experimental: {
-      inspector: {
-        toggleKeyCombo: "meta-shift",
-        holdMode: true,
-        showToggleButton: "always",
-        toggleButtonPos: "bottom-right",
-      },
+      //inspector: {
+        //toggleKeyCombo: "meta-shift",
+        //holdMode: true,
+        //showToggleButton: "always",
+        //toggleButtonPos: "bottom-right",
+      //},
     },
   },
 

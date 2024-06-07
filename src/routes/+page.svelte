@@ -9,14 +9,14 @@
 
 
 <style>
-	.backgr_color{
+	.backgr_color {
 		background-color: black;
 	}
-	.page{
+	.page {
+		background-image: url("");
 		width: 100%;
 		height: 90vh;
-		background-image: url(/background_image.jpg);
 		background-position: center;
-		opacity: 75%;
+		opacity: 0.75;
 	}
 </style>
